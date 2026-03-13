@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#4f46e5" />
+    <meta name="description" content="CIT Capstone project repository" />
+    <title>CIT Capstone Repository</title>
+    <style>
+      noscript {
+        display: block;
+        margin: 0;
+        padding: 0;
+        border: none;
+        outline: none;
+        background: transparent;
+      }
+      .ns-root {
+        box-sizing: border-box;
+        position: fixed;
+        inset: 0;
+        z-index: 2147483646;
+        margin: 0;
+        padding: clamp(1.25rem, 4vw, 2.5rem);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: auto;
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          Roboto,
+          'Helvetica Neue',
+          Arial,
+          sans-serif;
+        background: linear-gradient(145deg, #0f172a 0%, #1e1b4b 42%, #312e81 100%);
+        color: #e2e8f0;
+        -webkit-font-smoothing: antialiased;
+      }
+      .ns-root *,
+      .ns-root *::before,
+      .ns-root *::after {
+        box-sizing: border-box;
+      }
+      .ns-card {
+        width: 100%;
+        max-width: 28rem;
+        padding: clamp(1.75rem, 4vw, 2.25rem);
+        border-radius: 1.25rem;
+        background: rgba(15, 23, 42, 0.88);
+        border: none;
+        outline: none;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(12px);
+      }
+      .ns-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #c7d2fe;
+        background: rgba(99, 102, 241, 0.25);
+        border: none;
+        margin-bottom: 1.25rem;
+      }
+      .ns-badge svg {
+        flex-shrink: 0;
+        opacity: 0.9;
+      }
+      .ns-title {
+        margin: 0 0 0.5rem;
+        font-size: clamp(1.35rem, 4vw, 1.6rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #f8fafc;
+        line-height: 1.25;
+      }
+      .ns-lead {
+        margin: 0 0 1.25rem;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #94a3b8;
+      }
+      .ns-steps {
+        margin: 0 0 1.5rem;
+        padding: 1rem 1rem 1rem 1.35rem;
+        border-radius: 0.75rem;
+        background: rgba(30, 27, 75, 0.55);
+        border: none;
+      }
+      .ns-steps h2 {
+        margin: 0 0 0.65rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #a5b4fc;
+      }
+      .ns-steps ol {
+        margin: 0;
+        padding-left: 1.1rem;
+        color: #cbd5e1;
+        font-size: 0.875rem;
+        line-height: 1.65;
+      }
+      .ns-steps li + li {
+        margin-top: 0.35rem;
+      }
+      .ns-foot {
+        margin: 0;
+        font-size: 0.8rem;
+        line-height: 1.5;
+        color: #64748b;
+      }
+      .ns-foot strong {
+        color: #94a3b8;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+    <noscript>
+      <div class="ns-root">
+        <div class="ns-card">
+          <div class="ns-badge" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            JavaScript required
+          </div>
+          <h1 class="ns-title">CIT Capstone Repository</h1>
+          <p class="ns-lead">
+            This site needs JavaScript to run. Your browser has scripting turned off, so sign-in, search, and
+            submissions can’t load.
+          </p>
+          <div class="ns-steps">
+            <h2>Turn JavaScript on</h2>
+            <ol>
+              <li><strong>Chrome / Edge:</strong> Settings → Privacy and security → Site settings → JavaScript → Allowed.</li>
+              <li><strong>Firefox:</strong> Type <code style="background: rgba(0,0,0,.25); padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.85em">about:config</code> → set <code style="background: rgba(0,0,0,.25); padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.85em">javascript.enabled</code> to true.</li>
+              <li><strong>Safari:</strong> Settings → Advanced → enable JavaScript, then reload.</li>
+            </ol>
+          </div>
+          <p class="ns-foot">
+            After enabling JavaScript, <strong>reload this page</strong>. If you use an extension that blocks scripts,
+            allow this site or pause the blocker for this domain.
+          </p>
+        </div>
+      </div>
+    </noscript>
+  </body>
+</html>

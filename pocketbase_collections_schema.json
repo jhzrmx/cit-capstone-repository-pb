@@ -1,0 +1,129 @@
+[
+  {
+    "id": "pbc_departments_01",
+    "listRule": "",
+    "viewRule": "",
+    "createRule": "@request.auth.role = 'admin'",
+    "updateRule": "@request.auth.role = 'admin'",
+    "deleteRule": "@request.auth.role = 'admin'",
+    "name": "departments",
+    "type": "base",
+    "fields": [
+      { "autogeneratePattern": "", "hidden": false, "id": "text_name_dep", "max": 255, "min": 0, "name": "name", "pattern": "", "presentable": false, "primaryKey": false, "required": true, "system": false, "type": "text" },
+      { "autogeneratePattern": "", "hidden": false, "id": "text_code_dep", "max": 255, "min": 0, "name": "code", "pattern": "", "presentable": false, "primaryKey": false, "required": true, "system": false, "type": "text" },
+      { "hidden": false, "id": "autodate_created_dep", "name": "created", "onCreate": true, "onUpdate": false, "presentable": false, "system": false, "type": "autodate" },
+      { "hidden": false, "id": "autodate_updated_dep", "name": "updated", "onCreate": true, "onUpdate": true, "presentable": false, "system": false, "type": "autodate" }
+    ],
+    "indexes": []
+  },
+  {
+    "id": "_pb_users_auth_",
+    "listRule": "id = @request.auth.id || @request.auth.role = 'admin' || @request.auth.role = 'faculty'",
+    "viewRule": "id = @request.auth.id || @request.auth.role = 'admin' || @request.auth.role = 'faculty'",
+    "createRule": "",
+    "updateRule": "id = @request.auth.id || @request.auth.role = 'admin'",
+    "deleteRule": "id = @request.auth.id || @request.auth.role = 'admin'",
+    "name": "users",
+    "type": "auth",
+    "fields": [
+      { "autogeneratePattern": "", "hidden": false, "id": "text_name_usr", "max": 255, "min": 0, "name": "name", "pattern": "", "presentable": false, "primaryKey": false, "required": false, "system": false, "type": "text" },
+      { "hidden": false, "id": "select_role_usr", "maxSelect": 1, "name": "role", "presentable": false, "required": true, "system": false, "type": "select", "values": ["student", "faculty", "admin"] },
+      { "cascadeDelete": false, "hidden": false, "id": "rel_department_usr", "maxSelect": 1, "minSelect": 0, "name": "department", "presentable": false, "required": false, "system": false, "type": "relation", "collectionId": "pbc_departments_01" },
+      { "hidden": false, "id": "autodate_created_usr", "name": "created", "onCreate": true, "onUpdate": false, "presentable": false, "system": false, "type": "autodate" },
+      { "hidden": false, "id": "autodate_updated_usr", "name": "updated", "onCreate": true, "onUpdate": true, "presentable": false, "system": false, "type": "autodate" }
+    ],
+    "indexes": [],
+    "system": false,
+    "authRule": "",
+    "manageRule": "@request.auth.role = 'admin'",
+    "authAlert": { "enabled": true, "emailTemplate": { "subject": "Login from a new location", "body": "<p>Hello,</p>\n<p>We noticed a login to your {APP_NAME} account from a new location:</p>\n<p><em>{ALERT_INFO}</em></p>\n<p>If this wasn't you, change your password.</p>\n<p>Thanks,<br/>{APP_NAME}</p>" } },
+    "oauth2": { "mappedFields": { "id": "", "name": "name", "username": "", "avatarURL": "avatar" }, "enabled": false },
+    "passwordAuth": { "enabled": true, "identityFields": ["email"] },
+    "mfa": { "enabled": false, "duration": 1800, "rule": "" },
+    "otp": { "enabled": true, "duration": 600, "length": 6, "emailTemplate": { "subject": "Your registration code – CIT Capstone", "body": "<p>Hello,</p><p>Your one-time code is:</p><p style=\"font-size:1.25rem;font-weight:bold;letter-spacing:0.2em\">{OTP}</p><p>It expires in 10 minutes. If you did not register, ignore this email.</p>" } },
+    "authToken": { "duration": 604800 },
+    "passwordResetToken": { "duration": 1800 },
+    "emailChangeToken": { "duration": 1800 },
+    "verificationToken": { "duration": 259200 },
+    "fileToken": { "duration": 180 },
+    "verificationTemplate": { "subject": "Verify email", "body": "<p>Verify: {TOKEN}</p>" },
+    "resetPasswordTemplate": { "subject": "Reset password", "body": "<p>Reset: {TOKEN}</p>" },
+    "confirmEmailChangeTemplate": { "subject": "Confirm new email", "body": "<p>Confirm: {TOKEN}</p>" }
+  },
+  {
+    "id": "pbc_tags_01",
+    "listRule": "@request.auth.verified = true || @request.auth.role = 'faculty' || @request.auth.role = 'admin'",
+    "viewRule": "@request.auth.verified = true || @request.auth.role = 'faculty' || @request.auth.role = 'admin'",
+    "createRule": "@request.auth.role = 'admin'",
+    "updateRule": "@request.auth.role = 'admin'",
+    "deleteRule": "@request.auth.role = 'admin'",
+    "name": "tags",
+    "type": "base",
+    "fields": [
+      { "autogeneratePattern": "", "hidden": false, "id": "text_name_tag", "max": 0, "min": 0, "name": "name", "pattern": "", "presentable": false, "primaryKey": false, "required": true, "system": false, "type": "text" },
+      { "hidden": false, "id": "autodate_created_tag", "name": "created", "onCreate": true, "onUpdate": false, "presentable": false, "system": false, "type": "autodate" },
+      { "hidden": false, "id": "autodate_updated_tag", "name": "updated", "onCreate": true, "onUpdate": true, "presentable": false, "system": false, "type": "autodate" }
+    ],
+    "indexes": []
+  },
+  {
+    "id": "pbc_authors_01",
+    "listRule": "@request.auth.verified = true || @request.auth.role = 'faculty' || @request.auth.role = 'admin'",
+    "viewRule": "@request.auth.verified = true || @request.auth.role = 'faculty' || @request.auth.role = 'admin'",
+    "createRule": "@request.auth.id != '' && @request.auth.verified = true",
+    "updateRule": "@request.auth.role = 'admin'",
+    "deleteRule": "@request.auth.role = 'admin'",
+    "name": "authors",
+    "type": "base",
+    "fields": [
+      { "autogeneratePattern": "", "hidden": false, "id": "text_name_aut", "max": 255, "min": 0, "name": "name", "pattern": "", "presentable": false, "primaryKey": false, "required": true, "system": false, "type": "text" },
+      { "cascadeDelete": false, "hidden": false, "id": "rel_user_aut", "maxSelect": 1, "minSelect": 0, "name": "user", "presentable": false, "required": false, "system": false, "type": "relation", "collectionId": "_pb_users_auth_" },
+      { "hidden": false, "id": "autodate_created_aut", "name": "created", "onCreate": true, "onUpdate": false, "presentable": false, "system": false, "type": "autodate" },
+      { "hidden": false, "id": "autodate_updated_aut", "name": "updated", "onCreate": true, "onUpdate": true, "presentable": false, "system": false, "type": "autodate" }
+    ],
+    "indexes": []
+  },
+  {
+    "id": "pbc_capstones_01",
+    "listRule": "@request.auth.id != '' && ((@request.auth.role = 'faculty' || @request.auth.role = 'admin') || (@request.auth.verified = true && (status = 'approved' || created_by = @request.auth.id)))",
+    "viewRule": "@request.auth.id != '' && ((@request.auth.role = 'faculty' || @request.auth.role = 'admin') || (@request.auth.verified = true && (status = 'approved' || created_by = @request.auth.id)))",
+    "createRule": "@request.auth.id != '' && @request.auth.verified = true",
+    "updateRule": "(@request.auth.verified = true && created_by = @request.auth.id) || @request.auth.role = 'faculty' || @request.auth.role = 'admin'",
+    "deleteRule": "@request.auth.role = 'faculty' || @request.auth.role = 'admin'",
+    "name": "capstones",
+    "type": "base",
+    "fields": [
+      { "autogeneratePattern": "", "hidden": false, "id": "text_title_cap", "max": 0, "min": 0, "name": "title", "pattern": "", "presentable": false, "primaryKey": false, "required": true, "system": false, "type": "text" },
+      { "autogeneratePattern": "", "hidden": false, "id": "text_abstract_cap", "max": 0, "min": 0, "name": "abstract", "pattern": "", "presentable": false, "primaryKey": false, "required": true, "system": false, "type": "text" },
+      { "cascadeDelete": true, "hidden": false, "id": "rel_authors_cap", "maxSelect": 20, "minSelect": 1, "name": "authors", "presentable": false, "required": true, "system": false, "type": "relation", "collectionId": "pbc_authors_01" },
+      { "cascadeDelete": false, "hidden": false, "id": "rel_tags_cap", "maxSelect": 20, "minSelect": 0, "name": "tags", "presentable": false, "required": false, "system": false, "type": "relation", "collectionId": "pbc_tags_01" },
+      { "hidden": false, "id": "file_pdf_cap", "maxSelect": 1, "maxSize": 52428800, "mimeTypes": ["application/pdf"], "name": "pdf_file", "presentable": false, "protected": false, "required": false, "system": false, "thumbs": null, "type": "file" },
+      { "autogeneratePattern": "", "hidden": false, "id": "url_repo_cap", "max": 0, "min": 0, "name": "repository_link", "pattern": "", "presentable": false, "primaryKey": false, "required": false, "system": false, "type": "url" },
+      { "hidden": false, "id": "number_year_cap", "max": 2035, "min": 1990, "name": "year", "onlyInt": true, "presentable": false, "required": true, "system": false, "type": "number" },
+      { "hidden": false, "id": "select_status_cap", "maxSelect": 1, "name": "status", "presentable": false, "required": true, "system": false, "type": "select", "values": ["pending", "approved", "rejected"] },
+      { "cascadeDelete": false, "hidden": false, "id": "rel_approved_by_cap", "maxSelect": 1, "minSelect": 0, "name": "approved_by", "presentable": false, "required": false, "system": false, "type": "relation", "collectionId": "_pb_users_auth_" },
+      { "cascadeDelete": false, "hidden": false, "id": "rel_created_by_cap", "maxSelect": 1, "minSelect": 0, "name": "created_by", "presentable": false, "required": false, "system": false, "type": "relation", "collectionId": "_pb_users_auth_" },
+      { "hidden": false, "id": "autodate_created_cap", "name": "created", "onCreate": true, "onUpdate": false, "presentable": false, "system": false, "type": "autodate" },
+      { "hidden": false, "id": "autodate_updated_cap", "name": "updated", "onCreate": true, "onUpdate": true, "presentable": false, "system": false, "type": "autodate" }
+    ],
+    "indexes": []
+  },
+  {
+    "id": "pbc_search_logs_01",
+    "listRule": "@request.auth.role = 'faculty' || @request.auth.role = 'admin'",
+    "viewRule": "@request.auth.role = 'faculty' || @request.auth.role = 'admin'",
+    "createRule": "@request.auth.id != '' && @request.auth.verified = true",
+    "updateRule": "@request.auth.role = 'admin'",
+    "deleteRule": "@request.auth.role = 'admin'",
+    "name": "search_logs",
+    "type": "base",
+    "fields": [
+      { "autogeneratePattern": "", "hidden": false, "id": "text_query_log", "max": 0, "min": 0, "name": "query", "pattern": "", "presentable": false, "primaryKey": false, "required": true, "system": false, "type": "text" },
+      { "cascadeDelete": false, "hidden": false, "id": "rel_user_log", "maxSelect": 1, "minSelect": 0, "name": "user", "presentable": false, "required": false, "system": false, "type": "relation", "collectionId": "_pb_users_auth_" },
+      { "autogeneratePattern": "", "hidden": false, "id": "text_tags_clicked_log", "max": 0, "min": 0, "name": "tags_clicked", "pattern": "", "presentable": false, "primaryKey": false, "required": false, "system": false, "type": "text" },
+      { "hidden": false, "id": "autodate_created_log", "name": "created", "onCreate": true, "onUpdate": false, "presentable": false, "system": false, "type": "autodate" },
+      { "hidden": false, "id": "autodate_updated_log", "name": "updated", "onCreate": true, "onUpdate": true, "presentable": false, "system": false, "type": "autodate" }
+    ],
+    "indexes": []
+  }
+]

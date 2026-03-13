@@ -1,0 +1,149 @@
+@import 'tailwindcss';
+
+/* Class-based dark mode (toggle on <html class="dark">) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  button {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  /**
+   * While toggling light/dark, ease background, border, and text colors
+   * (class added only during toggle — see themeStore.toggleTheme).
+   */
+  html.theme-transitioning,
+  html.theme-transitioning * {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 0.35s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* Broad dark surfaces inside app (pages keep light utility classes) */
+@layer components {
+  .dark main .bg-white,
+  .dark main .rounded-xl.border.border-slate-200.bg-white,
+  .dark [role='dialog'] .relative.z-10.rounded-xl.bg-white {
+    @apply border-slate-700 bg-slate-900 text-slate-100;
+  }
+  .dark main .bg-slate-50,
+  .dark main .bg-white\/70,
+  .dark main .bg-white\/80 {
+    @apply bg-slate-950 text-slate-100;
+  }
+  .dark main .border-slate-200,
+  .dark main .border-slate-300 {
+    @apply border-slate-600;
+  }
+  .dark main .text-slate-900,
+  .dark main .text-slate-800 {
+    @apply text-slate-100;
+  }
+  .dark main .text-slate-700 {
+    @apply text-slate-300;
+  }
+  .dark main .text-slate-600 {
+    @apply text-slate-400;
+  }
+  .dark main input:not([type='checkbox']):not([type='radio']),
+  .dark main select,
+  .dark main textarea {
+    @apply border-slate-600 bg-slate-800 text-slate-100 placeholder:text-slate-500;
+  }
+  .dark main table thead {
+    @apply bg-slate-800;
+  }
+  .dark main .divide-slate-200 {
+    @apply divide-slate-700;
+  }
+  .dark main .hover\:bg-slate-50:hover,
+  .dark main .hover\:bg-slate-100:hover {
+    @apply bg-slate-800;
+  }
+  .dark main .bg-indigo-50 {
+    @apply bg-indigo-950/50 text-indigo-200;
+  }
+  .dark main .bg-amber-50,
+  .dark main .border-amber-200 {
+    @apply border-amber-800 bg-amber-950/40 text-amber-200;
+  }
+  .dark main .bg-red-50 {
+    @apply bg-red-950/40 text-red-200;
+  }
+  .dark main .text-red-600 {
+    @apply text-red-400;
+  }
+  .dark main .text-green-600 {
+    @apply text-green-400;
+  }
+  /* Headings that only set size (no text-* on same node) still need light text in dark */
+  .dark main h1:not([class*='text-indigo']):not([class*='text-transparent']),
+  .dark main h2.text-slate-900,
+  .dark main h3.text-slate-900 {
+    @apply text-slate-100;
+  }
+}
+
+@utility scrollbar-hide {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Thin scrollbars app-wide (Firefox + WebKit) */
+@layer base {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(148 163 184 / 0.45) transparent;
+  }
+  html.dark {
+    scrollbar-color: rgb(148 163 184 / 0.4) rgb(15 23 42 / 0.35);
+  }
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: rgb(148 163 184 / 0.4);
+    border-radius: 9999px;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: rgb(148 163 184 / 0.55);
+  }
+  html.dark *::-webkit-scrollbar-thumb {
+    background: rgb(100 116 139 / 0.45);
+  }
+  html.dark *::-webkit-scrollbar-thumb:hover {
+    background: rgb(148 163 184 / 0.5);
+  }
+}
+
+/* Extra-narrow scrollbar for tag lists / small panels */
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(148 163 184 / 0.5) transparent;
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgb(148 163 184 / 0.45);
+    border-radius: 9999px;
+  }
+}
+.dark .scrollbar-thin {
+  scrollbar-color: rgb(148 163 184 / 0.35) transparent;
+}
+.dark .scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgb(100 116 139 / 0.5);
+}
