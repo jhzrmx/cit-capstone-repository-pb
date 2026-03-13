@@ -73,8 +73,8 @@ flowchart LR
 ### 1. Clone & install
 
 ```bash
-git clone <your-fork-or-upstream-url>
-cd cit-capstone-project-repository-pb
+git clone https://github.com/jhzrmx/cit-capstone-repository-pb/
+cd cit-capstone-repository-pb
 npm install
 ```
 
