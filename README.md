@@ -10,7 +10,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-06B6D4?style=flat&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![PocketBase](https://img.shields.io/badge/PocketBase-B8E986?style=flat&logo=sqlite&logoColor=333)](https://pocketbase.io/)
 
-[Features](#-features) · [Quick start](#-quick-start) · [Docs](#-documentation) · [Contributing](#-contributing)
+[Features](#features) · [Quick start](#quick-start) · [Docs](#documentation) · [Contributing](#contributing)
 
 </div>
 
