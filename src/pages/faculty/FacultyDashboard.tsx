@@ -21,8 +21,13 @@ const PieChart = (props: {
 }) => {
   onCleanup(() => props.ref(undefined));
   return (
-    <div class="relative h-[280px] w-full">
-      <canvas ref={props.ref} role="img" aria-label={props.title} />
+    <div class="relative mx-auto mt-4 aspect-square w-full max-w-xs sm:max-w-sm lg:max-w-md">
+      <canvas
+        ref={props.ref}
+        role="img"
+        aria-label={props.title}
+        class="h-full w-full"
+      />
     </div>
   );
 };
