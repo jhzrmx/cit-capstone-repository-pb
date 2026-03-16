@@ -17,6 +17,7 @@ import CapstoneApproval from './pages/faculty/CapstoneApproval';
 import UserManagement from './pages/admin/UserManagement';
 import DepartmentManagement from './pages/admin/DepartmentManagement';
 import CapstoneManagement from './pages/admin/CapstoneManagement';
+import AccountSettings from './pages/AccountSettings';
 import NotFound from './pages/NotFound';
 
 const App = () => {
@@ -86,6 +87,14 @@ const App = () => {
         component={() => (
           <ProtectedRoute roles={['student']}>
             <MySubmissions />
+          </ProtectedRoute>
+        )}
+      />
+      <Route
+        path="/account"
+        component={() => (
+          <ProtectedRoute roles={['student', 'faculty', 'admin']}>
+            <AccountSettings />
           </ProtectedRoute>
         )}
       />
