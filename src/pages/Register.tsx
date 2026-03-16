@@ -1,5 +1,6 @@
 import { createSignal, onMount } from 'solid-js';
 import { useNavigate, useSearchParams, A } from '@solidjs/router';
+import { ClientResponseError } from 'pocketbase';
 import { authService, isAllowedOAuthEmail, OAUTH_ALLOWED_EMAIL_DOMAIN } from '../services/auth.service';
 import { setAuthLoading } from '../stores/authStore';
 import { departmentService } from '../services/department.service';
@@ -59,13 +60,39 @@ const Register = () => {
       setOtpId(id);
       setStep('otp');
     } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : 'Registration failed';
-      setError(
-        msg +
-          (msg.toLowerCase().includes('otp') || msg.toLowerCase().includes('mail')
-            ? ''
-            : ' If email never arrives, enable OTP + SMTP in PocketBase (see docs/REGISTER_OTP.md).')
-      );
+      // Friendlier message when the email is already registered.
+      if (err instanceof ClientResponseError) {
+        const resp = err.response as { message?: string; data?: Record<string, { message?: string }> } | undefined;
+        const emailMsg = resp?.data?.email?.message ?? '';
+        const combined = `${resp?.message ?? ''} ${emailMsg}`.toLowerCase();
+
+        if (
+          combined.includes('already') ||
+          combined.includes('exist') ||
+          combined.includes('in use') ||
+          combined.includes('registered') ||
+          combined.includes('unique')
+        ) {
+          setError('That email is already registered. Try logging in instead.');
+          return;
+        }
+      }
+
+      const rawMsg = err instanceof Error ? err.message : 'Registration failed';
+      const lower = rawMsg.toLowerCase();
+
+      // Hide PocketBase’s very generic message
+      const base =
+        lower.includes('failed to create record') || lower === 'something went wrong.'
+          ? 'Registration failed. Please try again in a moment.'
+          : rawMsg;
+
+      const withHint =
+        lower.includes('otp') || lower.includes('mail')
+          ? base
+          : `${base} If the verification email never arrives, enable OTP + SMTP in PocketBase (see docs/REGISTER_OTP.md).`;
+
+      setError(withHint);
     } finally {
       setSendingOtp(false);
       setAuthLoading(false);
@@ -109,7 +136,7 @@ const Register = () => {
     'w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500';
 
   return (
-    <div class="flex w-full flex-1 flex-col items-center justify-center py-8 min-h-[calc(100dvh-7rem)] sm:min-h-[calc(100dvh-6.5rem)]">
+    <div class="flex w-full flex-1 flex-col items-center justify-center py-8 min-h-[calc(100dvh-7rem)] sm:min-h-[calc(100dvh-6.5rem)] animate-card-soft">
       <div class="relative z-0 w-full max-w-md rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900 sm:p-8">
         <h1 class="text-center text-2xl font-bold text-slate-900 dark:text-slate-100">
           Student registration

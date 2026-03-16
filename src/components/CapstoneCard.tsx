@@ -11,7 +11,7 @@ const CapstoneCard = (props: CapstoneCardProps) => {
   const tagNames = () => (c.expand?.tags ?? []).map((t) => t.name).join(', ') || '—';
 
   return (
-    <article class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md dark:border-slate-700 dark:bg-slate-900 dark:shadow-none dark:hover:border-slate-600">
+    <article class="animate-card-soft rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-soft hover:-translate-y-0.5 hover:shadow-lg dark:border-slate-700 dark:bg-slate-900 dark:shadow-none dark:hover:border-slate-600">
       <A href={`/capstone/${c.id}`} class="block">
         <h3 class="font-semibold text-slate-900 hover:text-indigo-600 dark:text-slate-100 dark:hover:text-indigo-400">
           {c.title}

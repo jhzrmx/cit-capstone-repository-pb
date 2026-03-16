@@ -7,7 +7,7 @@ const MySubmissions = () => {
   const [capstones] = createResource(() => capstoneService.getMySubmissions());
 
   return (
-    <div>
+    <div class="animate-page-soft">
       <h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100">My Submissions</h1>
       <p class="mt-1 text-slate-600 dark:text-slate-400">
         Track the approval status of your capstone submissions.

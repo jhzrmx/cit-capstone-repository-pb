@@ -36,7 +36,7 @@ const AsyncButton = (props: AsyncButtonProps) => {
       type={props.type ?? 'button'}
       disabled={busy()}
       onClick={handle}
-      class={`${props.class ?? ''} disabled:cursor-not-allowed disabled:opacity-50`}
+      class={`${props.class ?? ''} transition-soft disabled:cursor-not-allowed disabled:opacity-50 active:translate-y-[1px]`}
       aria-busy={pending()}
     >
       {pending() && !props.keepLabel

@@ -12,8 +12,8 @@ const Landing = () => {
   };
 
   return (
-    <div class="relative min-h-[calc(100dvh-8rem)] overflow-hidden">
-      {/* Background */}
+    <div class="relative min-h-[calc(100dvh-8rem)] -mx-4 -mt-6 overflow-hidden sm:-mx-6 lg:-mx-8 animate-page-soft">
+      {/* Full-bleed background so no boxed border from layout padding */}
       <div class="absolute inset-0 -z-10 bg-slate-50 dark:bg-slate-950" />
       <div
         class="absolute inset-0 -z-10 opacity-[0.03] dark:opacity-[0.06]"
@@ -32,7 +32,7 @@ const Landing = () => {
           College of Information Technology
         </p>
 
-        <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 sm:text-5xl md:text-6xl">
+        <h1 class="text-5xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 md:text-6xl">
           <span class="block text-slate-900 dark:text-slate-100">CIT Capstone</span>
           <span class="mt-2 block bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent dark:from-indigo-400 dark:to-violet-400">
             Repository
@@ -80,7 +80,7 @@ const Landing = () => {
 
         <Show when={!auth.user}>
           <div class="mx-auto mt-12 grid max-w-3xl gap-8 text-left sm:grid-cols-3 sm:gap-6">
-            <div class="rounded-2xl border border-slate-200/60 bg-white/70 p-6 shadow-sm backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/90">
+            <div class="rounded-2xl border border-slate-200/60 bg-white/70 p-6 shadow-sm backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/90 animate-card-soft">
               <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-400">
                 <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path
@@ -96,7 +96,7 @@ const Landing = () => {
                 Find projects by keyword or filter by tags once you sign in.
               </p>
             </div>
-            <div class="rounded-2xl border border-slate-200/60 bg-white/70 p-6 shadow-sm backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/90">
+            <div class="rounded-2xl border border-slate-200/60 bg-white/70 p-6 shadow-sm backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/90 animate-card-soft">
               <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-400">
                 <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path
@@ -112,7 +112,7 @@ const Landing = () => {
                 Students can submit capstones for faculty approval.
               </p>
             </div>
-            <div class="rounded-2xl border border-slate-200/60 bg-white/70 p-6 shadow-sm backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/90">
+            <div class="rounded-2xl border border-slate-200/60 bg-white/70 p-6 shadow-sm backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/90 animate-card-soft">
               <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400">
                 <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path

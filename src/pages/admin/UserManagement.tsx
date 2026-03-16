@@ -107,7 +107,7 @@ const UserManagement = () => {
   const departmentName = (u: User) => u.expand?.department?.name ?? '—';
 
   return (
-    <div>
+    <div class="animate-page-soft">
       <h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100">User Management</h1>
       <p class="mt-1 text-slate-600 dark:text-slate-400">
         Create, update, and delete users. Assign roles and departments. Only students can self-register.

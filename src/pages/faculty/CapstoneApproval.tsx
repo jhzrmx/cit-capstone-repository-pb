@@ -24,7 +24,7 @@ const CapstoneApproval = () => {
   };
 
   return (
-    <div>
+    <div class="animate-page-soft">
       <h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100">Capstone Approval</h1>
       <p class="mt-1 text-slate-600 dark:text-slate-400">Approve or reject student submissions.</p>
 

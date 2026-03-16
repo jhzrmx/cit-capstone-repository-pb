@@ -147,3 +147,44 @@
 .dark .scrollbar-thin::-webkit-scrollbar-thumb {
   background: rgb(100 116 139 / 0.5);
 }
+
+/* Lightweight motion utilities ------------------------------------------------ */
+@layer utilities {
+  @keyframes fade-in-up-soft {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.99);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes fade-in-soft {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-page-soft {
+    animation: fade-in-up-soft 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
+
+  .animate-card-soft {
+    animation: fade-in-up-soft 0.35s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
+
+  .animate-fade-soft {
+    animation: fade-in-soft 0.25s ease-out both;
+  }
+
+  .transition-soft {
+    transition-property: background-color, border-color, color, box-shadow, transform;
+    transition-duration: 180ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}

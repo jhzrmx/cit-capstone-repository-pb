@@ -192,7 +192,7 @@ const FacultyDashboard = () => {
   const yearLabel = () => (selectedYear() == null ? 'All years' : String(selectedYear()));
 
   return (
-    <div>
+    <div class="animate-page-soft">
       <h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100">Faculty Dashboard</h1>
       <p class="mt-1 text-slate-600 dark:text-slate-400">
         Search trends, popular tags, and user search activity by year.
@@ -222,7 +222,7 @@ const FacultyDashboard = () => {
       </div>
 
       <div class="mt-8 grid gap-6 lg:grid-cols-2">
-        <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900 dark:shadow-none">
+        <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900 dark:shadow-none animate-card-soft">
           <h2 class="font-semibold text-slate-900 dark:text-slate-100">Most searched keywords</h2>
           <p class="mt-0.5 text-sm text-slate-500 dark:text-slate-400">
             {yearLabel()} · Submitted searches only (min {MIN_QUERY_LENGTH} characters).
@@ -240,7 +240,7 @@ const FacultyDashboard = () => {
           )}
         </div>
 
-        <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900 dark:shadow-none">
+        <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900 dark:shadow-none animate-card-soft">
           <h2 class="font-semibold text-slate-900 dark:text-slate-100">Popular tags</h2>
           <p class="mt-0.5 text-sm text-slate-500 dark:text-slate-400">
             {yearLabel()} · Tag usage across capstones (only tags in use).
@@ -259,7 +259,7 @@ const FacultyDashboard = () => {
         </div>
       </div>
 
-      <div class="mt-8 rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900 dark:shadow-none">
+      <div class="mt-8 rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900 dark:shadow-none animate-card-soft">
         <h2 class="font-semibold text-slate-900 dark:text-slate-100">User search activity</h2>
         <p class="mt-0.5 text-sm text-slate-500 dark:text-slate-400">
           {yearLabel()} · Number of searches per month.

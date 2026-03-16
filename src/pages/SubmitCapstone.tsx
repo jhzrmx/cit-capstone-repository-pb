@@ -76,7 +76,7 @@ const SubmitCapstone = () => {
     'w-full min-w-0 rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500';
 
   return (
-    <div class="mx-auto max-w-xl">
+    <div class="mx-auto max-w-xl animate-page-soft">
       <h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100">Submit Capstone</h1>
       <p class="mt-1 text-slate-600 dark:text-slate-400">
         Your submission will be reviewed by faculty before it appears in search.

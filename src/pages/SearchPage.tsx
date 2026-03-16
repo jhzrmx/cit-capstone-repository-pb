@@ -116,7 +116,7 @@ const SearchPage = () => {
       : yearOptions;
 
   return (
-    <div>
+    <div class="animate-page-soft">
       <h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100">Search Capstones</h1>
       <div class="mt-6 flex flex-col gap-6">
         <SearchBar
