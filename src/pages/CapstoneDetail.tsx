@@ -4,7 +4,7 @@ import { capstoneService } from '../services/capstone.service';
 import { pb } from '../services/pocketbase';
 import { SkeletonDetail } from '../components/Skeleton';
 
-export default function CapstoneDetail() {
+const CapstoneDetail = () => {
   const params = useParams();
   const capstoneId = () => params.id;
   const [capstone] = createResource(
@@ -83,4 +83,6 @@ export default function CapstoneDetail() {
       </Show>
     </Show>
   );
-}
+};
+
+export default CapstoneDetail;

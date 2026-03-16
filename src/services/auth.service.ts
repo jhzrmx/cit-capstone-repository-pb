@@ -4,7 +4,7 @@ import type { User } from '../types';
 import type { UserCreateInput, UserUpdateInput } from '../types';
 
 /** PocketBase SDK often surfaces failures as "Something went wrong." — expand for debugging. */
-export function formatOAuthError(err: unknown): string {
+export const formatOAuthError = (err: unknown): string => {
   if (err instanceof ClientResponseError) {
     const status = err.status;
     const data = err.response as Record<string, unknown> | undefined;
@@ -59,15 +59,15 @@ export function formatOAuthError(err: unknown): string {
   }
   if (err instanceof Error) return err.message;
   return 'OAuth sign-in failed.';
-}
+};
 
 /** Only these emails may use OAuth sign-in (CBSUA institutional accounts). */
 export const OAUTH_ALLOWED_EMAIL_DOMAIN = '@cbsua.edu.ph';
 
-export function isAllowedOAuthEmail(email: string | undefined | null): boolean {
+export const isAllowedOAuthEmail = (email: string | undefined | null): boolean => {
   const e = (email ?? '').trim().toLowerCase();
   return e.endsWith(OAUTH_ALLOWED_EMAIL_DOMAIN);
-}
+};
 
 /** Shown when password auth succeeds but verified === false */
 export const LOGIN_EMAIL_NOT_VERIFIED =

@@ -8,7 +8,7 @@ interface ProtectedRouteProps {
   roles?: UserRole[];
 }
 
-export default function ProtectedRoute(props: ProtectedRouteProps) {
+const ProtectedRoute = (props: ProtectedRouteProps) => {
   const navigate = useNavigate();
 
   const allowed = () => {
@@ -39,4 +39,6 @@ export default function ProtectedRoute(props: ProtectedRouteProps) {
       {props.children}
     </Show>
   );
-}
+};
+
+export default ProtectedRoute;

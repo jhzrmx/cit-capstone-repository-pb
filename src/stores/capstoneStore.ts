@@ -13,10 +13,10 @@ export const [capstoneState, setCapstoneState] = createStore<CapstoneState>({
   loading: false,
 });
 
-export function setCapstones(items: Capstone[], total: number) {
+export const setCapstones = (items: Capstone[], total: number) => {
   setCapstoneState({ items, total });
-}
+};
 
-export function setCapstoneLoading(loading: boolean) {
+export const setCapstoneLoading = (loading: boolean) => {
   setCapstoneState('loading', loading);
-}
+};

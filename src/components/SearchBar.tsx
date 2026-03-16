@@ -11,7 +11,7 @@ interface SearchBarProps {
   class?: string;
 }
 
-export default function SearchBar(props: SearchBarProps) {
+const SearchBar = (props: SearchBarProps) => {
   const [value, setValue] = createSignal(props.initialValue ?? '');
 
   // Sync input with URL/initialValue when it changes (e.g. navigating with ?q=)
@@ -52,4 +52,6 @@ export default function SearchBar(props: SearchBarProps) {
       </div>
     </form>
   );
-}
+};
+
+export default SearchBar;

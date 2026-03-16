@@ -12,7 +12,7 @@ interface ConfirmModalProps {
   onCancel: () => void;
 }
 
-export default function ConfirmModal(props: ConfirmModalProps) {
+const ConfirmModal = (props: ConfirmModalProps) => {
   const [pending, setPending] = createSignal(false);
 
   const confirm = async () => {
@@ -53,4 +53,6 @@ export default function ConfirmModal(props: ConfirmModalProps) {
       </div>
     </Modal>
   );
-}
+};
+
+export default ConfirmModal;

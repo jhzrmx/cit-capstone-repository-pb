@@ -6,7 +6,7 @@ import AsyncButton from '../../components/AsyncButton';
 import { SkeletonPageTable } from '../../components/Skeleton';
 import type { Department } from '../../types';
 
-export default function DepartmentManagement() {
+const DepartmentManagement = () => {
   const [departments, { refetch }] = createResource(() => departmentService.getList());
   const [creating, setCreating] = createSignal(false);
   const [editing, setEditing] = createSignal<Department | null>(null);
@@ -212,4 +212,6 @@ export default function DepartmentManagement() {
       />
     </div>
   );
-}
+};
+
+export default DepartmentManagement;

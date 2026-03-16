@@ -3,7 +3,7 @@ import { A } from '@solidjs/router';
 import { capstoneService } from '../services/capstone.service';
 import { SkeletonPageTable } from '../components/Skeleton';
 
-export default function MySubmissions() {
+const MySubmissions = () => {
   const [capstones] = createResource(() => capstoneService.getMySubmissions());
 
   return (
@@ -78,4 +78,6 @@ export default function MySubmissions() {
       )}
     </div>
   );
-}
+};
+
+export default MySubmissions;

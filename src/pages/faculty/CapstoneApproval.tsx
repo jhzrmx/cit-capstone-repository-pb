@@ -3,7 +3,7 @@ import { capstoneService } from '../../services/capstone.service';
 import ConfirmModal from '../../components/ConfirmModal';
 import { SkeletonPageTable } from '../../components/Skeleton';
 
-export default function CapstoneApproval() {
+const CapstoneApproval = () => {
   const [pending, { refetch }] = createResource(() => capstoneService.getPendingSubmissions());
   const [confirmAction, setConfirmAction] = createSignal<{
     type: 'approve' | 'reject';
@@ -111,4 +111,6 @@ export default function CapstoneApproval() {
       />
     </div>
   );
-}
+};
+
+export default CapstoneApproval;

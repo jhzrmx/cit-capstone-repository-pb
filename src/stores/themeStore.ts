@@ -1,16 +1,16 @@
 const STORAGE_KEY = 'cit-capstone-theme';
 
-function apply(dark: boolean) {
+const apply = (dark: boolean) => {
   document.documentElement.classList.toggle('dark', dark);
   try {
     localStorage.setItem(STORAGE_KEY, dark ? 'dark' : 'light');
   } catch {
     /* ignore */
   }
-}
+};
 
 /** Call once before paint to avoid flash */
-export function initTheme(): void {
+export const initTheme = (): void => {
   if (typeof document === 'undefined') return;
   let dark = false;
   try {
@@ -22,15 +22,15 @@ export function initTheme(): void {
     dark = false;
   }
   apply(dark);
-}
+};
 
-export function isDark(): boolean {
+export const isDark = (): boolean => {
   return document.documentElement.classList.contains('dark');
-}
+};
 
 const THEME_TRANSITION_MS = 380;
 
-export function toggleTheme(): boolean {
+export const toggleTheme = (): boolean => {
   const root = document.documentElement;
   const next = !root.classList.contains('dark');
   root.classList.add('theme-transitioning');
@@ -39,8 +39,8 @@ export function toggleTheme(): boolean {
     window.setTimeout(() => root.classList.remove('theme-transitioning'), THEME_TRANSITION_MS);
   });
   return next;
-}
+};
 
-export function setTheme(dark: boolean): void {
+export const setTheme = (dark: boolean): void => {
   apply(dark);
-}
+};

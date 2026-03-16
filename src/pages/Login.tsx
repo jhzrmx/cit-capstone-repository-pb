@@ -13,7 +13,7 @@ import type { Department } from '../types';
 
 const OAUTH_PROVIDER = import.meta.env.VITE_OAUTH_PROVIDER ?? 'google';
 
-export default function Login() {
+const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = createSignal('');
   const [password, setPassword] = createSignal('');
@@ -248,4 +248,6 @@ export default function Login() {
       </Modal>
     </div>
   );
-}
+};
+
+export default Login;

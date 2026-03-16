@@ -14,34 +14,34 @@ const PIE_COLORS = [
   '#f43f5e', '#f97316', '#eab308', '#22c55e', '#14b8a6',
 ];
 
-function PieChart(props: {
+const PieChart = (props: {
   ref: (el: HTMLCanvasElement | undefined) => void;
   data: { label: string; value: number }[];
   title: string;
-}) {
+}) => {
   onCleanup(() => props.ref(undefined));
   return (
     <div class="relative h-[280px] w-full">
       <canvas ref={props.ref} role="img" aria-label={props.title} />
     </div>
   );
-}
+};
 
-function LineChart(props: {
+const LineChart = (props: {
   ref: (el: HTMLCanvasElement | undefined) => void;
   labels: string[];
   values: number[];
   title: string;
-}) {
+}) => {
   onCleanup(() => props.ref(undefined));
   return (
     <div class="relative h-[280px] w-full">
       <canvas ref={props.ref} role="img" aria-label={props.title} />
     </div>
   );
-}
+};  
 
-export default function FacultyDashboard() {
+const FacultyDashboard = () => {
   const currentYear = new Date().getFullYear();
   const [selectedYear, setSelectedYear] = createSignal<number | null>(currentYear);
   const [keywordsCanvas, setKeywordsCanvas] = createSignal<HTMLCanvasElement | undefined>(undefined);
@@ -276,4 +276,6 @@ export default function FacultyDashboard() {
       </div>
     </div>
   );
-}
+};
+
+export default FacultyDashboard;

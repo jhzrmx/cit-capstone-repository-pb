@@ -5,7 +5,7 @@ interface CapstoneCardProps {
   capstone: Capstone;
 }
 
-export default function CapstoneCard(props: CapstoneCardProps) {
+const CapstoneCard = (props: CapstoneCardProps) => {
   const c = props.capstone;
   const authors = () => (c.expand?.authors ?? []).map((a) => a.name).join(', ') || '—';
   const tagNames = () => (c.expand?.tags ?? []).map((t) => t.name).join(', ') || '—';
@@ -27,4 +27,6 @@ export default function CapstoneCard(props: CapstoneCardProps) {
       </A>
     </article>
   );
-}
+};
+
+export default CapstoneCard;
