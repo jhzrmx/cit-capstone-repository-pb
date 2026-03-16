@@ -2,7 +2,6 @@ import { useNavigate, A } from '@solidjs/router';
 import { Show } from 'solid-js';
 import SearchBar from '../components/SearchBar';
 import { auth } from '../stores/authStore';
-import BeautifulBackground from '../components/BeautifulBackground';
 
 const Landing = () => {
   const navigate = useNavigate();
