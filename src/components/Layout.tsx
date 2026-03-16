@@ -146,10 +146,10 @@ const Layout = (props: { children?: import('solid-js').JSX.Element }) => {
       </Show>
 
       <main
-        class="flex min-h-screen flex-col bg-slate-50 pt-14 dark:bg-slate-950"
+        class="flex flex-1 flex-col bg-slate-50 pt-14 dark:bg-slate-950"
         classList={{ 'md:pl-56': !!auth.user }}
       >
-        <div class="mx-auto flex min-h-0 w-full max-w-6xl flex-1 flex-col px-4 py-6 sm:px-6 lg:px-8 animate-page-soft">
+        <div class="mx-auto flex min-h-0 w-full max-w-6xl flex-1 flex-col px-4 pt-6 pb-4 sm:px-6 sm:pb-6 lg:px-8 animate-page-soft">
           {props.children}
         </div>
       </main>

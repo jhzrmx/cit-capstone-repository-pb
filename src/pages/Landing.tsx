@@ -12,7 +12,7 @@ const Landing = () => {
   };
 
   return (
-    <div class="relative min-h-[calc(100dvh-8rem)] -mx-4 -mt-6 overflow-hidden sm:-mx-6 lg:-mx-8 animate-page-soft">
+    <div class="relative min-h-[calc(100dvh-3.5rem)] -mx-4 -mt-6 overflow-hidden sm:-mx-6 lg:-mx-8 animate-page-soft">
       {/* Full-bleed background so no boxed border from layout padding */}
       <div class="absolute inset-0 -z-10 bg-slate-50 dark:bg-slate-950" />
       <div
@@ -27,7 +27,7 @@ const Landing = () => {
       />
       <div class="absolute bottom-0 right-0 -z-10 h-64 w-96 rounded-full bg-amber-100/50 blur-3xl dark:bg-amber-900/20" />
 
-      <div class="mx-auto max-w-4xl px-4 pt-12 pb-24 text-center sm:pt-20">
+      <div class="mx-auto max-w-4xl px-4 pt-12 pb-10 text-center sm:pt-20 sm:pb-12">
         <p class="mb-6 inline-block rounded-full border border-indigo-200/80 bg-white/80 px-4 py-1.5 text-sm font-medium tracking-wide text-indigo-700 shadow-sm backdrop-blur-sm dark:border-indigo-500/40 dark:bg-slate-800/90 dark:text-indigo-300">
           College of Information Technology
         </p>
