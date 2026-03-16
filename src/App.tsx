@@ -8,6 +8,7 @@ import CapstoneDetail from './pages/CapstoneDetail';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import VerifyEmail from './pages/VerifyEmail';
+import ForgotPassword from './pages/ForgotPassword';
 import Logout from './pages/Logout';
 import SubmitCapstone from './pages/SubmitCapstone';
 import MySubmissions from './pages/MySubmissions';
@@ -16,6 +17,7 @@ import CapstoneApproval from './pages/faculty/CapstoneApproval';
 import UserManagement from './pages/admin/UserManagement';
 import DepartmentManagement from './pages/admin/DepartmentManagement';
 import CapstoneManagement from './pages/admin/CapstoneManagement';
+import NotFound from './pages/NotFound';
 
 const App = () => {
   return (
@@ -42,6 +44,14 @@ const App = () => {
         component={() => (
           <PublicOnlyRoute>
             <Login />
+          </PublicOnlyRoute>
+        )}
+      />
+      <Route
+        path="/forgot-password"
+        component={() => (
+          <PublicOnlyRoute>
+            <ForgotPassword />
           </PublicOnlyRoute>
         )}
       />
@@ -121,6 +131,7 @@ const App = () => {
           </ProtectedRoute>
         )}
       />
+      <Route path="*all" component={NotFound} />
     </Router>
   );
 };
