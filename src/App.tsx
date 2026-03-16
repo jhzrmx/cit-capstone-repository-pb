@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import VerifyEmail from './pages/VerifyEmail';
 import ForgotPassword from './pages/ForgotPassword';
+import PasswordReset from './pages/PasswordReset';
 import Logout from './pages/Logout';
 import SubmitCapstone from './pages/SubmitCapstone';
 import MySubmissions from './pages/MySubmissions';
@@ -52,6 +53,14 @@ const App = () => {
         component={() => (
           <PublicOnlyRoute>
             <ForgotPassword />
+          </PublicOnlyRoute>
+        )}
+      />
+      <Route
+        path="/password-reset"
+        component={() => (
+          <PublicOnlyRoute>
+            <PasswordReset />
           </PublicOnlyRoute>
         )}
       />

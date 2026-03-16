@@ -187,6 +187,11 @@ export const authService = {
     await pb.collection('users').requestPasswordReset(email.trim());
   },
 
+  /** Completes password reset using the token from the email link. */
+  async confirmPasswordReset(token: string, password: string): Promise<void> {
+    await pb.collection('users').confirmPasswordReset(token, password, password);
+  },
+
   // Admin: create user (no auto-login)
   async createUser(input: UserCreateInput): Promise<User> {
     const body: Record<string, unknown> = {
