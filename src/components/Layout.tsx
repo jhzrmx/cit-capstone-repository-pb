@@ -1,7 +1,9 @@
-import { A, useLocation } from '@solidjs/router';
+import { A, useLocation, useNavigate } from '@solidjs/router';
 import { createSignal, Show } from 'solid-js';
 import { auth } from '../stores/authStore';
 import { toggleTheme } from '../stores/themeStore';
+import ConfirmModal from './ConfirmModal';
+import { authService } from '../services/auth.service';
 import type { UserRole } from '../types';
 
 const navLinks: { href: string; label: string; roles?: UserRole[] }[] = [
@@ -63,6 +65,8 @@ const DarkModeButton = () => {
 const Layout = (props: { children?: import('solid-js').JSX.Element }) => {
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = createSignal(false);
+  const [logoutOpen, setLogoutOpen] = createSignal(false);
+  const navigate = useNavigate();
 
   const visibleLinks = () => navLinks.filter((l) => canSee(l.roles));
 
@@ -126,13 +130,16 @@ const Layout = (props: { children?: import('solid-js').JSX.Element }) => {
             </ul>
             <div class="mt-auto border-t border-slate-200 px-3 pt-4 dark:border-slate-800">
               <p class="truncate px-3 py-1 text-xs text-slate-500 dark:text-slate-400">{auth.user!.name}</p>
-              <A
-                href="/logout"
-                onClick={() => setSidebarOpen(false)}
-                class="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
+              <button
+                type="button"
+                onClick={() => {
+                  setSidebarOpen(false);
+                  setLogoutOpen(true);
+                }}
+                class="block w-full rounded-lg px-3 py-2.5 text-left text-sm font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
               >
                 Log out
-              </A>
+              </button>
             </div>
           </nav>
         </aside>
@@ -146,6 +153,19 @@ const Layout = (props: { children?: import('solid-js').JSX.Element }) => {
           {props.children}
         </div>
       </main>
+
+      <ConfirmModal
+        open={logoutOpen()}
+        title="Log out?"
+        message="You’ll be signed out of the CIT Capstone Repository on this device."
+        danger
+        confirmLabel="Log out"
+        onConfirm={async () => {
+          authService.logout();
+          navigate('/', { replace: true });
+        }}
+        onCancel={() => setLogoutOpen(false)}
+      />
     </div>
   );
 };
