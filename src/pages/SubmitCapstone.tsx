@@ -4,6 +4,7 @@ import { capstoneService } from '../services/capstone.service';
 import { tagService } from '../services/tag.service';
 import { auth } from '../stores/authStore';
 import { Skeleton } from '../components/Skeleton';
+import RichTextEditor from '../components/RichTextEditor';
 import type { Tag } from '../types';
 
 const SubmitCapstone = () => {
@@ -94,13 +95,14 @@ const SubmitCapstone = () => {
         </label>
         <label class="block">
           <span class="font-medium text-slate-700 dark:text-slate-300">Abstract</span>
-          <textarea
-            required
-            rows={4}
-            value={abstract()}
-            onInput={(e) => setAbstract(e.currentTarget.value)}
-            class={fieldClass}
-          />
+          <div class="mt-1">
+            <RichTextEditor
+              value={abstract()}
+              onChange={setAbstract}
+              placeholder="Briefly describe the capstone, its goals, and outcome…"
+              minHeight="9rem"
+            />
+          </div>
         </label>
         <div>
           <span class="font-medium text-slate-700 dark:text-slate-300">Tags</span>

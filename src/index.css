@@ -187,4 +187,13 @@
     transition-duration: 180ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
+
+  /* Rich text editor defaults */
+  .rich-text-editor-area {
+    font-weight: 400;
+  }
+  .rich-text-editor-area b,
+  .rich-text-editor-area strong {
+    font-weight: 600;
+  }
 }

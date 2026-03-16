@@ -9,6 +9,7 @@ import { authService } from '../../services/auth.service';
 import Modal from '../../components/Modal';
 import ConfirmModal from '../../components/ConfirmModal';
 import { SkeletonPageTable } from '../../components/Skeleton';
+import RichTextEditor from '../../components/RichTextEditor';
 import type { Capstone, AuthorInput, User, CapstoneStatus, Tag } from '../../types';
 
 // Author in form: optional id when editing (existing author record)
@@ -374,13 +375,14 @@ const CapstoneManagement = () => {
               </label>
               <label class="block">
                 <span class="font-medium text-slate-700 dark:text-slate-300">Abstract</span>
-                <textarea
-                  required
-                  rows={4}
-                  value={createForm().abstract}
-                  onInput={(e) => setCreateForm((f) => ({ ...f, abstract: e.currentTarget.value }))}
-                  class="mt-1 w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100"
-                />
+                <div class="mt-1">
+                  <RichTextEditor
+                    value={createForm().abstract}
+                    onChange={(html) => setCreateForm((f) => ({ ...f, abstract: html }))}
+                    placeholder="Short summary of the capstone (supports bold, italic, underline, and lists)…"
+                    minHeight="9rem"
+                  />
+                </div>
               </label>
               <div>
                 <span class="font-medium text-slate-700 dark:text-slate-300">Authors (required)</span>

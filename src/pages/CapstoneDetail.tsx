@@ -3,6 +3,7 @@ import { useParams } from '@solidjs/router';
 import { capstoneService } from '../services/capstone.service';
 import { pb } from '../services/pocketbase';
 import { SkeletonDetail } from '../components/Skeleton';
+import SafeHtmlContent from '../components/SafeHtmlContent';
 
 const CapstoneDetail = () => {
   const params = useParams();
@@ -24,7 +25,9 @@ const CapstoneDetail = () => {
         {(c) => (
           <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900 dark:shadow-none animate-card-soft">
             <h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100">{c.title}</h1>
-            <p class="mt-2 text-slate-600 dark:text-slate-400">{c.abstract}</p>
+            <div class="mt-2 text-sm">
+              <SafeHtmlContent html={c.abstract} />
+            </div>
             <dl class="mt-6 grid gap-2 sm:grid-cols-2">
               <dt class="font-medium text-slate-500 dark:text-slate-400">Authors</dt>
               <dd class="text-slate-900 dark:text-slate-100">
