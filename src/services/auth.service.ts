@@ -182,6 +182,11 @@ export const authService = {
     return pb.authStore.isValid;
   },
 
+  /** Sends PocketBase's password-reset email to the given address (SMTP must be configured). */
+  async requestPasswordReset(email: string): Promise<void> {
+    await pb.collection('users').requestPasswordReset(email.trim());
+  },
+
   // Admin: create user (no auto-login)
   async createUser(input: UserCreateInput): Promise<User> {
     const body: Record<string, unknown> = {

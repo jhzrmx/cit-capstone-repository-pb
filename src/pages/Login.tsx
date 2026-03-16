@@ -171,7 +171,15 @@ const Login = () => {
             onInput={(e) => setPassword(e.currentTarget.value)}
             class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500"
           />
-          {error() && <p class="text-sm text-red-600 dark:text-red-400">{error()}</p>}
+          <div class="flex items-center justify-between text-sm">
+            {error() && <p class="text-red-600 dark:text-red-400">{error()}</p>}
+            <A
+              href="/forgot-password"
+              class="ml-auto text-xs font-medium text-indigo-600 hover:underline dark:text-indigo-400"
+            >
+              Forgot password?
+            </A>
+          </div>
           <button
             type="submit"
             disabled={loginSubmitting()}

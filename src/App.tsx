@@ -8,6 +8,7 @@ import CapstoneDetail from './pages/CapstoneDetail';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import VerifyEmail from './pages/VerifyEmail';
+import ForgotPassword from './pages/ForgotPassword';
 import Logout from './pages/Logout';
 import SubmitCapstone from './pages/SubmitCapstone';
 import MySubmissions from './pages/MySubmissions';
@@ -42,6 +43,14 @@ const App = () => {
         component={() => (
           <PublicOnlyRoute>
             <Login />
+          </PublicOnlyRoute>
+        )}
+      />
+      <Route
+        path="/forgot-password"
+        component={() => (
+          <PublicOnlyRoute>
+            <ForgotPassword />
           </PublicOnlyRoute>
         )}
       />
