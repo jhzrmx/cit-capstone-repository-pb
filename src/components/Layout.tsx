@@ -71,7 +71,7 @@ const Layout = (props: { children?: import('solid-js').JSX.Element }) => {
   const visibleLinks = () => navLinks.filter((l) => canSee(l.roles));
 
   return (
-    <div class="min-h-screen bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+    <div class="flex min-h-screen flex-col bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
       <header class="fixed left-0 right-0 top-0 z-40 flex h-14 items-center justify-between gap-2 border-b border-slate-200 bg-white/95 px-4 backdrop-blur dark:border-slate-800 dark:bg-slate-900/95 sm:px-6">
         <A href="/" class="min-w-0 shrink text-base font-semibold text-indigo-700 dark:text-indigo-400 sm:text-lg">
           CIT Capstone Repository
@@ -146,11 +146,13 @@ const Layout = (props: { children?: import('solid-js').JSX.Element }) => {
       </Show>
 
       <main
-        class="flex flex-1 flex-col bg-slate-50 pt-14 dark:bg-slate-950"
+        class="flex flex-1 flex-col bg-slate-50 dark:bg-slate-950"
         classList={{ 'md:pl-56': !!auth.user }}
       >
-        <div class="mx-auto flex min-h-0 w-full max-w-6xl flex-1 flex-col px-4 pt-6 pb-4 sm:px-6 sm:pb-6 lg:px-8 animate-page-soft">
-          {props.children}
+        <div class="mx-auto flex min-h-0 w-full max-w-6xl flex-1 flex-col mx-4 pt-14 lg:px-8 animate-page-soft">
+          <div class="p-8">
+            {props.children}
+          </div>
         </div>
       </main>
 
