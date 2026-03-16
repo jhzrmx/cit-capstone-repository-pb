@@ -16,13 +16,13 @@ const navLinks: { href: string; label: string; roles?: UserRole[] }[] = [
   { href: '/admin/departments', label: 'Departments', roles: ['admin'] },
 ];
 
-function canSee(roles?: UserRole[]) {
+const canSee = (roles?: UserRole[]) => {
   if (!roles) return true;
   const user = auth.user;
   return user && roles.includes(user.role);
 }
 
-function DarkModeButton() {
+const DarkModeButton = () => {
   const [dark, setDark] = createSignal(
     typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
   );
@@ -60,7 +60,7 @@ function DarkModeButton() {
   );
 }
 
-export default function Layout(props: { children?: import('solid-js').JSX.Element }) {
+const Layout = (props: { children?: import('solid-js').JSX.Element }) => {
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = createSignal(false);
 
@@ -148,4 +148,6 @@ export default function Layout(props: { children?: import('solid-js').JSX.Elemen
       </main>
     </div>
   );
-}
+};
+
+export default Layout;

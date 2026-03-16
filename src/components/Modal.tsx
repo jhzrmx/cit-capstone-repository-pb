@@ -10,7 +10,7 @@ interface ModalProps {
   class?: string;
 }
 
-export default function Modal(props: ModalProps) {
+const Modal = (props: ModalProps) => {
   const closeOnBackdrop = () => props.closeOnBackdropClick !== false;
 
   return (
@@ -55,4 +55,6 @@ export default function Modal(props: ModalProps) {
       </div>
     </div>
   );
-}
+};
+
+export default Modal;

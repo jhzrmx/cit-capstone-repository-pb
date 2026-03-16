@@ -3,7 +3,7 @@ import { useNavigate } from '@solidjs/router';
 import { auth } from '../stores/authStore';
 
 /** Redirect to home if already signed in (login/register). */
-export default function PublicOnlyRoute(props: { children: import('solid-js').JSX.Element }) {
+const PublicOnlyRoute = (props: { children: import('solid-js').JSX.Element }) => {
   const navigate = useNavigate();
 
   createEffect(() => {
@@ -18,4 +18,6 @@ export default function PublicOnlyRoute(props: { children: import('solid-js').JS
       {props.children}
     </Show>
   );
-}
+};
+
+export default PublicOnlyRoute;

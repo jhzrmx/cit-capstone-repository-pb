@@ -7,7 +7,7 @@ import type { Department } from '../types';
 
 type Step = 'form' | 'otp';
 
-export default function Register() {
+const Register = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
@@ -239,4 +239,6 @@ export default function Register() {
       </div>
     </div>
   );
-}
+};
+
+export default Register;

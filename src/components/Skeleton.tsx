@@ -1,15 +1,15 @@
 /** Base skeleton placeholder – use class for size (e.g. h-4 w-32) */
-export function Skeleton(props: { class?: string }) {
+const Skeleton = (props: { class?: string }) => {
   return (
     <div
       class={`animate-pulse rounded bg-slate-200 dark:bg-slate-700 ${props.class ?? ''}`}
       aria-hidden="true"
     />
   );
-}
+};
 
 /** Table skeleton: rows × columns */
-export function SkeletonTable(props: { rows?: number; cols?: number; class?: string }) {
+const SkeletonTable = (props: { rows?: number; cols?: number; class?: string }) => {
   const rows = props.rows ?? 5;
   const cols = props.cols ?? 5;
   return (
@@ -40,10 +40,10 @@ export function SkeletonTable(props: { rows?: number; cols?: number; class?: str
       </table>
     </div>
   );
-}
+};
 
 /** Card skeleton matching CapstoneCard layout */
-export function SkeletonCard() {
+const SkeletonCard = () => {
   return (
     <div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900">
       <Skeleton class="h-5 w-3/4" />
@@ -54,10 +54,10 @@ export function SkeletonCard() {
       <Skeleton class="mt-1 h-3 w-16" />
     </div>
   );
-}
+};
 
 /** Grid of card skeletons (e.g. search results) */
-export function SkeletonCardGrid(props: { count?: number; class?: string }) {
+const SkeletonCardGrid = (props: { count?: number; class?: string }) => {
   const count = props.count ?? 6;
   return (
     <div class={`grid gap-4 sm:grid-cols-2 lg:grid-cols-3 ${props.class ?? ''}`}>
@@ -66,10 +66,10 @@ export function SkeletonCardGrid(props: { count?: number; class?: string }) {
       ))}
     </div>
   );
-}
+};
 
 /** Detail page skeleton (title, text block, definition list) */
-export function SkeletonDetail() {
+const SkeletonDetail = () => {
   return (
     <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900 dark:shadow-none">
       <Skeleton class="h-8 w-3/4 max-w-xl" />
@@ -90,10 +90,10 @@ export function SkeletonDetail() {
       </div>
     </div>
   );
-}
+};
 
 /** List of lines (e.g. dashboard keywords or tags) */
-export function SkeletonList(props: { lines?: number; class?: string }) {
+const SkeletonList = (props: { lines?: number; class?: string }) => {
   const lines = props.lines ?? 5;
   return (
     <ul class={`space-y-2 ${props.class ?? ''}`}>
@@ -105,10 +105,10 @@ export function SkeletonList(props: { lines?: number; class?: string }) {
       ))}
     </ul>
   );
-}
+};
 
 /** Chart placeholder (pie/line) – same height as dashboard charts to avoid layout shift */
-export function SkeletonChart(props: { class?: string }) {
+const SkeletonChart = (props: { class?: string }) => {
   return (
     <div
       class={`flex min-h-[280px] items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800/80 ${props.class ?? ''}`}
@@ -117,13 +117,15 @@ export function SkeletonChart(props: { class?: string }) {
       <Skeleton class="h-48 w-48 rounded-full" />
     </div>
   );
-}
+};
 
 /** Full-page table loading (header + table skeleton) */
-export function SkeletonPageTable(props: { rows?: number; cols?: number }) {
+const SkeletonPageTable = (props: { rows?: number; cols?: number }) => {
   return (
     <div class="mt-6">
       <SkeletonTable rows={props.rows ?? 8} cols={props.cols ?? 5} />
     </div>
   );
-}
+};
+
+export { Skeleton, SkeletonTable, SkeletonCard, SkeletonCardGrid, SkeletonDetail, SkeletonList, SkeletonChart, SkeletonPageTable };

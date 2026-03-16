@@ -16,7 +16,7 @@ export interface AsyncButtonProps {
  * Disables on click until onClick (async) finishes. Use for any action that hits the API.
  * For form submit, prefer parent `submitting` + disabled on submit button if onSubmit is on the form.
  */
-export default function AsyncButton(props: AsyncButtonProps) {
+const AsyncButton = (props: AsyncButtonProps) => {
   const [pending, setPending] = createSignal(false);
   const busy = () => pending() || !!props.disabled;
 
@@ -44,4 +44,6 @@ export default function AsyncButton(props: AsyncButtonProps) {
         : props.children}
     </button>
   );
-}
+};
+
+export default AsyncButton;

@@ -10,7 +10,7 @@ import AsyncButton from '../../components/AsyncButton';
 import { SkeletonPageTable } from '../../components/Skeleton';
 import type { User, UserRole } from '../../types';
 
-export default function UserManagement() {
+const UserManagement = () => {
   const [listSearchQuery, setListSearchQuery] = createSignal('');
   const [debouncedListQuery, setDebouncedListQuery] = createSignal('');
   createEffect(() => {
@@ -328,4 +328,6 @@ export default function UserManagement() {
       />
     </div>
   );
-}
+};
+
+export default UserManagement;

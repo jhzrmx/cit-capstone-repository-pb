@@ -6,7 +6,7 @@ import { auth } from '../stores/authStore';
 import { Skeleton } from '../components/Skeleton';
 import type { Tag } from '../types';
 
-export default function SubmitCapstone() {
+const SubmitCapstone = () => {
   const navigate = useNavigate();
   const [tags, setTags] = createSignal<Tag[]>([]);
   const [tagsLoading, setTagsLoading] = createSignal(true);
@@ -201,4 +201,6 @@ export default function SubmitCapstone() {
       </form>
     </div>
   );
-}
+};
+
+export default SubmitCapstone;

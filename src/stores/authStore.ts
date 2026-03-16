@@ -9,7 +9,7 @@ interface AuthState {
   pendingOAuthDepartment: boolean;
 }
 
-const [auth, setAuth] = createStore<AuthState>({
+export const [auth, setAuth] = createStore<AuthState>({
   user: pb.authStore.record ? (pb.authStore.record as unknown as User) : null,
   loading: false,
   pendingOAuthDepartment: false,
@@ -19,16 +19,14 @@ pb.authStore.onChange(() => {
   setAuth('user', pb.authStore.record ? (pb.authStore.record as unknown as User) : null);
 });
 
-export function setAuthUser(user: User | null) {
+export const setAuthUser = (user: User | null) => {
   setAuth('user', user);
-}
+};
 
-export function setAuthLoading(loading: boolean) {
+export const setAuthLoading = (loading: boolean) => {
   setAuth('loading', loading);
-}
+};
 
-export function setPendingOAuthDepartment(pending: boolean) {
+export const setPendingOAuthDepartment = (pending: boolean) => {
   setAuth('pendingOAuthDepartment', pending);
-}
-
-export { auth };
+};

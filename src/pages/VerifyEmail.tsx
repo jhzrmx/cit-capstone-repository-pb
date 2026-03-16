@@ -7,7 +7,7 @@ import { setAuthLoading } from '../stores/authStore';
  * Public page: send OTP to email and complete verification (same as Register step 2).
  * Linked from Login when password login fails (unverified) or directly /verify-email?email=...
  */
-export default function VerifyEmail() {
+const VerifyEmail = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
@@ -189,4 +189,6 @@ export default function VerifyEmail() {
       </div>
     </div>
   );
-}
+};
+
+export default VerifyEmail;

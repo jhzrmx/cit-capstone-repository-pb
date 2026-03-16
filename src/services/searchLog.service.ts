@@ -3,11 +3,11 @@ import type { SearchLog } from '../types';
 
 const COLLECTION = 'search_logs';
 
-function isAbortError(e: unknown): boolean {
+export const isAbortError = (e: unknown): boolean => {
   if (!e || typeof e !== 'object') return false;
   const err = e as { status?: number; name?: string; message?: string };
   return err.status === 0 || err.name === 'AbortError' || (err.message?.toLowerCase?.().includes?.('abort') ?? false);
-}
+};
 
 export const searchLogService = {
   async log(query: string, tagsClicked: string[] = []): Promise<void> {

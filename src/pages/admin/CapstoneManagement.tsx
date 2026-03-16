@@ -25,14 +25,14 @@ const emptyForm = () => ({
   pdf_file: null as File | null,
 });
 
-function capstoneListFilter(query: string): string {
+const capstoneListFilter = (query: string): string => {
   const q = (query ?? '').trim();
   if (!q) return '';
   const escaped = q.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
   return `(title ~ "${escaped}" || abstract ~ "${escaped}")`;
-}
+};
 
-export default function CapstoneManagement() {
+const CapstoneManagement = () => {
   const [listSearchQuery, setListSearchQuery] = createSignal('');
   const [debouncedListQuery, setDebouncedListQuery] = createSignal('');
   createEffect(() => {
@@ -583,4 +583,6 @@ export default function CapstoneManagement() {
       />
     </div>
   );
-}
+};
+
+export default CapstoneManagement;

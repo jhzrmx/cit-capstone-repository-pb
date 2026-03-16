@@ -17,7 +17,7 @@ import UserManagement from './pages/admin/UserManagement';
 import DepartmentManagement from './pages/admin/DepartmentManagement';
 import CapstoneManagement from './pages/admin/CapstoneManagement';
 
-export default function App() {
+const App = () => {
   return (
     <Router root={Layout}>
       <Route path="/" component={Landing} />
@@ -123,4 +123,6 @@ export default function App() {
       />
     </Router>
   );
-}
+};
+
+export default App;

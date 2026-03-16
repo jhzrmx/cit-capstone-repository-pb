@@ -3,7 +3,7 @@ import { Show } from 'solid-js';
 import SearchBar from '../components/SearchBar';
 import { auth } from '../stores/authStore';
 
-export default function Landing() {
+const Landing = () => {
   const navigate = useNavigate();
 
   const handleSearch = (query: string) => {
@@ -133,4 +133,6 @@ export default function Landing() {
       </div>
     </div>
   );
-}
+};
+
+export default Landing;

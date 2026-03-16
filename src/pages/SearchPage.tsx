@@ -1,8 +1,7 @@
 import { createEffect, createSignal, onMount } from 'solid-js';
 
 const DEBOUNCE_MS = 350;
-
-function debounce<T extends (...args: Parameters<T>) => void>(fn: T, ms: number): T {
+const debounce = <T extends (...args: Parameters<T>) => void>(fn: T, ms: number): T => {
   let timeoutId: ReturnType<typeof setTimeout> | undefined;
   return ((...args: Parameters<T>) => {
     if (timeoutId) clearTimeout(timeoutId);
@@ -27,7 +26,7 @@ import type { Tag } from '../types';
 
 const PER_PAGE = 20;
 
-export default function SearchPage() {
+const SearchPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [tags, setTags] = createSignal<Tag[]>([]);
   const [tagsLoading, setTagsLoading] = createSignal(true);
@@ -245,4 +244,6 @@ export default function SearchPage() {
       )}
     </div>
   );
-}
+};
+
+export default SearchPage;

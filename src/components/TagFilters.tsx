@@ -7,7 +7,7 @@ interface TagFiltersProps {
   class?: string;
 }
 
-export default function TagFilters(props: TagFiltersProps) {
+const TagFilters = (props: TagFiltersProps) => {
   return (
     <div class={props.class ?? ''}>
       <p class="mb-2 text-sm font-medium text-slate-600 dark:text-slate-400">Filter by tags</p>
@@ -33,4 +33,6 @@ export default function TagFilters(props: TagFiltersProps) {
       </div>
     </div>
   );
-}
+};
+
+export default TagFilters;
