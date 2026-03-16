@@ -17,6 +17,7 @@ import CapstoneApproval from './pages/faculty/CapstoneApproval';
 import UserManagement from './pages/admin/UserManagement';
 import DepartmentManagement from './pages/admin/DepartmentManagement';
 import CapstoneManagement from './pages/admin/CapstoneManagement';
+import NotFound from './pages/NotFound';
 
 const App = () => {
   return (
@@ -130,6 +131,7 @@ const App = () => {
           </ProtectedRoute>
         )}
       />
+      <Route path="*all" component={NotFound} />
     </Router>
   );
 };
