@@ -1,4 +1,5 @@
 import { createSignal, type JSX } from 'solid-js';
+import { FaSolidCircleNotch } from 'solid-icons/fa';
 
 export interface AsyncButtonProps {
   type?: 'button' | 'submit';
@@ -40,7 +41,7 @@ const AsyncButton = (props: AsyncButtonProps) => {
       aria-busy={pending()}
     >
       {pending() && !props.keepLabel
-        ? (props.loadingLabel ?? 'Please wait…')
+        ? <span class="inline-flex items-center justify-center gap-2"><FaSolidCircleNotch class="animate-spin shrink-0" />{props.loadingLabel ?? 'Please wait…'}</span>
         : props.children}
     </button>
   );
