@@ -17,7 +17,7 @@ const ForgotPassword = () => {
       setError('Enter the email linked to your account.');
       return;
     }
-    if (value && OAUTH_ALLOWED_EMAIL_DOMAIN && !value.endsWith(`@${OAUTH_ALLOWED_EMAIL_DOMAIN}`)) {
+    if (value && OAUTH_ALLOWED_EMAIL_DOMAIN && !value.endsWith(`${OAUTH_ALLOWED_EMAIL_DOMAIN}`)) {
       setError('Enter valid CBSUA email address.');
       return;
     }
