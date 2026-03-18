@@ -4,7 +4,11 @@ import { authService } from '../services/auth.service';
 
 const PasswordReset = () => {
   const [params] = useSearchParams();
-  const token = () => params.token ?? '';
+  const token = () => {
+    const t = params.token;
+    if (Array.isArray(t)) return t[0] ?? '';
+    return t ?? '';
+  };
 
   const [password, setPassword] = createSignal('');
   const [confirm, setConfirm] = createSignal('');
