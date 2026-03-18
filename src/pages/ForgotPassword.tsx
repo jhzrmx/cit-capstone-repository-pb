@@ -1,5 +1,5 @@
-import { createSignal } from 'solid-js';
 import { A } from '@solidjs/router';
+import { createSignal } from 'solid-js';
 import { authService, OAUTH_ALLOWED_EMAIL_DOMAIN } from '../services/auth.service';
 
 const ForgotPassword = () => {
@@ -15,6 +15,10 @@ const ForgotPassword = () => {
     const value = email().trim();
     if (!value) {
       setError('Enter the email linked to your account.');
+      return;
+    }
+    if (value && OAUTH_ALLOWED_EMAIL_DOMAIN && !value.endsWith(`@${OAUTH_ALLOWED_EMAIL_DOMAIN}`)) {
+      setError('Enter valid CBSUA email address.');
       return;
     }
     setSubmitting(true);
